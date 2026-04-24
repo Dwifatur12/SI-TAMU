@@ -62,10 +62,13 @@ export default function App() {
   const [toast, setToast] = useState(null);
   
   // State Navigasi
-  const [currentView, setCurrentView] = useState('public'); // public, admin-login, admin-dashboard
   const [adminUser, setAdminUser] = useState(() => {
     const saved = localStorage.getItem('sitabaAdmin');
     return saved ? JSON.parse(saved) : null;
+  });
+  const [currentView, setCurrentView] = useState(() => {
+    const saved = localStorage.getItem('sitabaAdmin');
+    return saved ? 'admin-dashboard' : 'public';
   });
 
   const [dataKunjungan, setDataKunjungan] = useState([]);
