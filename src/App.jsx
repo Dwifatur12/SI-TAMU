@@ -169,7 +169,7 @@ export default function App() {
           background: rgba(255, 255, 255, 0.65); 
           backdrop-filter: blur(24px); 
           -webkit-backdrop-filter: blur(24px);
-          border: 1px solid rgba(255, 255, 255, 0.8); 
+          border: 1px solid rgba(148, 163, 184, 0.4); 
           box-shadow: 0 25px 50px -12px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.02) inset; 
         }
         .dark .glass-card { 
@@ -206,7 +206,7 @@ export default function App() {
 
         .premium-input {
           background: rgba(255, 255, 255, 0.8);
-          border: 1px solid rgba(226, 232, 240, 0.8);
+          border: 1px solid rgba(148, 163, 184, 0.6);
           box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
         }
         .dark .premium-input {
@@ -594,47 +594,47 @@ function PublicPortal({ db, appId, showToast, firebaseUser, dataKunjungan, maste
           </h1>
           
           <p className="leading-relaxed max-w-md">
-            <span className="inline-block text-[15px] font-black text-slate-800 dark:text-slate-100 bg-emerald-500/10 dark:bg-emerald-400/10 px-2.5 py-1 rounded-lg border border-emerald-500/20 shadow-sm backdrop-blur-sm tracking-wide">
+            <span className="inline-block text-[15px] font-black text-slate-800 dark:text-slate-100 bg-emerald-500/10 dark:bg-emerald-400/10 px-2.5 py-1 rounded-lg border border-emerald-500/30 shadow-sm backdrop-blur-sm tracking-wide">
               Sistem Tatap Muka Virtual
             </span>
-            <span className="block mt-4 text-[14px] font-semibold text-slate-600 dark:text-slate-400">
+            <span className="block mt-4 text-[14px] font-semibold text-slate-700 dark:text-slate-400">
               Daftar secara mandiri, tunggu verifikasi, dan kami akan menghubungi Anda via WhatsApp Video Call.
             </span>
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4">
-          <div className="glass-card p-6 rounded-3xl border border-white/40 dark:border-white/5 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all group">
+          <div className="glass-card p-6 rounded-3xl border border-slate-300 dark:border-white/5 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all group">
             <div className="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500">
               <Clock size={24} className="text-blue-600 dark:text-blue-400" />
             </div>
-            <h3 className="font-black text-xs uppercase mb-2 tracking-wide text-slate-800 dark:text-slate-200">Jam Layanan</h3>
-            <p className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 leading-relaxed">
-              <span className="block mb-1"><b className="text-slate-700 dark:text-slate-300">Senin-Kamis & Sabtu:</b><br/>08:00 - 12:00 WITA</span>
-              <span className="block mb-1"><b className="text-slate-700 dark:text-slate-300">Jumat:</b> 08:00 - 11:00 WITA</span>
-              <span className="block text-rose-500">Minggu/Libur: Tutup</span>
+            <h3 className="font-black text-xs uppercase mb-2 tracking-wide text-slate-900 dark:text-slate-200">Jam Layanan</h3>
+            <p className="text-[11px] font-semibold text-slate-700 dark:text-slate-400 leading-relaxed">
+              <span className="block mb-1"><b className="text-slate-800 dark:text-slate-300">Senin-Kamis & Sabtu:</b><br/>08:00 - 12:00 WITA</span>
+              <span className="block mb-1"><b className="text-slate-800 dark:text-slate-300">Jumat:</b> 08:00 - 11:00 WITA</span>
+              <span className="block text-rose-600 dark:text-rose-500">Minggu/Libur: Tutup</span>
             </p>
           </div>
-          <div className="glass-card p-6 rounded-3xl border border-white/40 dark:border-white/5 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all group">
+          <div className="glass-card p-6 rounded-3xl border border-slate-300 dark:border-white/5 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all group">
             <div className="w-12 h-12 bg-emerald-50 dark:bg-emerald-900/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500">
               <PhoneCall size={24} className="text-emerald-600 dark:text-emerald-400" />
             </div>
-            <h3 className="font-black text-xs uppercase mb-2 tracking-wide text-slate-800 dark:text-slate-200">Syarat Panggilan</h3>
-            <p className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 leading-relaxed">Pastikan nomor yang didaftarkan terhubung dengan WhatsApp aktif dan memiliki koneksi internet/kuota yang stabil saat jadwal tiba.</p>
+            <h3 className="font-black text-xs uppercase mb-2 tracking-wide text-slate-900 dark:text-slate-200">Syarat Panggilan</h3>
+            <p className="text-[11px] font-semibold text-slate-700 dark:text-slate-400 leading-relaxed">Pastikan nomor yang didaftarkan terhubung dengan WhatsApp aktif dan memiliki koneksi internet/kuota yang stabil saat jadwal tiba.</p>
           </div>
         </div>
 
         {/* FITUR FAQ (Pusat Bantuan) */}
         <div className="mt-8">
-          <h3 className="text-sm font-black text-slate-900 dark:text-white mb-4 flex items-center gap-2"><Info size={18} className="text-blue-500"/> Pusat Bantuan (FAQ)</h3>
+          <h3 className="text-sm font-black text-slate-900 dark:text-white mb-4 flex items-center gap-2"><Info size={18} className="text-blue-600 dark:text-blue-500"/> Pusat Bantuan (FAQ)</h3>
           <div className="space-y-3">
             {faqs.map((faq, idx) => (
-              <div key={idx} className="glass-card rounded-2xl border border-white/40 dark:border-white/5 overflow-hidden transition-all">
-                <button onClick={() => setOpenFaq(openFaq === idx ? null : idx)} className="w-full text-left p-4 flex justify-between items-center text-xs font-bold text-slate-800 dark:text-slate-200 hover:bg-white/50 dark:hover:bg-slate-800/50">
+              <div key={idx} className="glass-card rounded-2xl border border-slate-300 dark:border-white/5 overflow-hidden transition-all">
+                <button onClick={() => setOpenFaq(openFaq === idx ? null : idx)} className="w-full text-left p-4 flex justify-between items-center text-xs font-bold text-slate-900 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50">
                   {faq.q}
-                  <ChevronDown size={16} className={`transition-transform duration-300 text-slate-400 ${openFaq === idx ? 'rotate-180' : ''}`}/>
+                  <ChevronDown size={16} className={`transition-transform duration-300 text-slate-500 dark:text-slate-400 ${openFaq === idx ? 'rotate-180' : ''}`}/>
                 </button>
-                <div className={`px-4 pb-4 pt-1 text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed ${openFaq === idx ? 'block' : 'hidden'}`}>
+                <div className={`px-4 pb-4 pt-1 text-[11px] text-slate-700 dark:text-slate-400 leading-relaxed ${openFaq === idx ? 'block' : 'hidden'}`}>
                   {faq.a}
                 </div>
               </div>
@@ -646,32 +646,32 @@ function PublicPortal({ db, appId, showToast, firebaseUser, dataKunjungan, maste
       {/* Kolom Kanan: Form */}
       <div className="lg:col-span-7 animate-in slide-in-from-right duration-1000 delay-150 relative">
         <div className="absolute -inset-1 bg-gradient-to-br from-emerald-500/20 to-blue-600/20 rounded-[3.5rem] blur-xl opacity-50 dark:opacity-30"></div>
-        <div className="glass-card p-8 md:p-12 rounded-[3rem] shadow-2xl relative border border-white/40 dark:border-slate-700/50 bg-white/70 dark:bg-slate-900/60">
+        <div className="glass-card p-8 md:p-12 rounded-[3rem] shadow-2xl relative border border-slate-300 dark:border-slate-700/50 bg-white/80 dark:bg-slate-900/60">
           
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-2xl font-black flex items-center gap-3 text-slate-900 dark:text-white"><UserCheck className="text-emerald-500" size={28}/> Form Registrasi</h2>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mt-2">Isi formulir dengan data KTP asli</p>
+              <h2 className="text-2xl font-black flex items-center gap-3 text-slate-900 dark:text-white"><UserCheck className="text-emerald-600 dark:text-emerald-500" size={28}/> Form Registrasi</h2>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-600 dark:text-slate-500 mt-2">Isi formulir dengan data KTP asli</p>
             </div>
-            <div className="hidden sm:flex w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-full items-center justify-center text-slate-400">
+            <div className="hidden sm:flex w-12 h-12 bg-slate-200 dark:bg-slate-800 rounded-full items-center justify-center text-slate-500 dark:text-slate-400">
               <FileText size={20}/>
             </div>
           </div>
 
           <div className="mb-10 relative">
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1.5 bg-slate-100 dark:bg-slate-800 -z-10 rounded-full"></div>
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1.5 bg-slate-200 dark:bg-slate-800 -z-10 rounded-full"></div>
             <div className="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 bg-gradient-to-r from-emerald-500 to-blue-500 -z-10 rounded-full transition-all duration-500 ease-out" style={{width: step === 1 ? '0%' : step === 2 ? '50%' : '100%'}}></div>
             <div className="flex justify-between items-center px-1">
               {[1,2,3].map(i => (
-                <div key={i} className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-xs border-4 transition-all duration-500 shadow-sm ${step >= i ? 'bg-white dark:bg-slate-900 border-emerald-500 text-emerald-500' : 'bg-slate-100 dark:bg-slate-800 border-white dark:border-slate-900 text-slate-400'}`}>
-                  {step > i ? <Check size={16} className="text-emerald-500"/> : i}
+                <div key={i} className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-xs border-4 transition-all duration-500 shadow-sm ${step >= i ? 'bg-white dark:bg-slate-900 border-emerald-500 text-emerald-600 dark:text-emerald-500' : 'bg-slate-200 dark:bg-slate-800 border-white dark:border-slate-900 text-slate-500 dark:text-slate-400'}`}>
+                  {step > i ? <Check size={16} className="text-emerald-600 dark:text-emerald-500"/> : i}
                 </div>
               ))}
             </div>
-            <div className="flex justify-between items-center mt-3 text-[9px] font-black uppercase tracking-widest text-slate-500">
-              <span className={step >= 1 ? "text-emerald-600 dark:text-emerald-400" : ""}>Data Diri</span>
-              <span className={`text-center ${step >= 2 ? "text-emerald-600 dark:text-emerald-400" : ""}`}>Pilih WBP</span>
-              <span className={`text-right ${step >= 3 ? "text-blue-600 dark:text-blue-400" : ""}`}>Jadwal</span>
+            <div className="flex justify-between items-center mt-3 text-[9px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-500">
+              <span className={step >= 1 ? "text-emerald-700 dark:text-emerald-400" : ""}>Data Diri</span>
+              <span className={`text-center ${step >= 2 ? "text-emerald-700 dark:text-emerald-400" : ""}`}>Pilih WBP</span>
+              <span className={`text-right ${step >= 3 ? "text-blue-700 dark:text-blue-400" : ""}`}>Jadwal</span>
             </div>
           </div>
 
@@ -689,23 +689,23 @@ function PublicPortal({ db, appId, showToast, firebaseUser, dataKunjungan, maste
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 ml-1">🧑 Nama Lengkap</label>
-                  <input type="text" value={formData.namaPengunjung} onChange={e=>setFormData({...formData, namaPengunjung: e.target.value.toUpperCase()})} placeholder="Sesuai KTP" className="w-full px-5 py-4 premium-input rounded-2xl text-xs font-bold uppercase outline-none transition-all" required />
+                  <label className="text-[10px] font-black uppercase text-slate-800 dark:text-slate-400 ml-1">🧑 Nama Lengkap</label>
+                  <input type="text" value={formData.namaPengunjung} onChange={e=>setFormData({...formData, namaPengunjung: e.target.value.toUpperCase()})} placeholder="Sesuai KTP" className="w-full px-5 py-4 premium-input rounded-2xl text-xs font-bold uppercase outline-none transition-all text-slate-900 dark:text-white" required />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 ml-1">💳 Nomor NIK</label>
-                  <input type="number" value={formData.nik} onChange={e=>{const val = e.target.value.slice(0,16); setFormData({...formData, nik: val})}} placeholder="16 Digit NIK KTP..." className="w-full px-5 py-4 premium-input rounded-2xl text-xs font-bold outline-none transition-all" required />
+                  <label className="text-[10px] font-black uppercase text-slate-800 dark:text-slate-400 ml-1">💳 Nomor NIK</label>
+                  <input type="number" value={formData.nik} onChange={e=>{const val = e.target.value.slice(0,16); setFormData({...formData, nik: val})}} placeholder="16 Digit NIK KTP..." className="w-full px-5 py-4 premium-input rounded-2xl text-xs font-bold outline-none transition-all text-slate-900 dark:text-white" required />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 ml-1">📱 Nomor WhatsApp</label>
-                  <input type="number" value={formData.noWa} onChange={e=>setFormData({...formData, noWa: e.target.value})} placeholder="08..." className="w-full px-5 py-4 premium-input rounded-2xl text-xs font-bold outline-none transition-all" required />
+                  <label className="text-[10px] font-black uppercase text-slate-800 dark:text-slate-400 ml-1">📱 Nomor WhatsApp</label>
+                  <input type="number" value={formData.noWa} onChange={e=>setFormData({...formData, noWa: e.target.value})} placeholder="08..." className="w-full px-5 py-4 premium-input rounded-2xl text-xs font-bold outline-none transition-all text-slate-900 dark:text-white" required />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 ml-1">🤝 Hubungan dgn WBP</label>
-                  <select value={formData.hubungan} onChange={e=>setFormData({...formData, hubungan: e.target.value})} className="w-full px-5 py-4 premium-input rounded-2xl text-xs font-bold uppercase outline-none appearance-none cursor-pointer transition-all" required>
+                  <label className="text-[10px] font-black uppercase text-slate-800 dark:text-slate-400 ml-1">🤝 Hubungan dgn WBP</label>
+                  <select value={formData.hubungan} onChange={e=>setFormData({...formData, hubungan: e.target.value})} className="w-full px-5 py-4 premium-input rounded-2xl text-xs font-bold uppercase outline-none appearance-none cursor-pointer transition-all text-slate-900 dark:text-white" required>
                     <option value="">-- Pilih Hubungan --</option>
                     <option value="Orang Tua">Orang Tua</option>
                     <option value="Suami / Istri">Suami / Istri</option>
@@ -717,15 +717,15 @@ function PublicPortal({ db, appId, showToast, firebaseUser, dataKunjungan, maste
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 ml-1">📍 Alamat Domisili</label>
-                <input type="text" value={formData.alamat} onChange={e=>setFormData({...formData, alamat: e.target.value})} placeholder="Ketik RT/RW, Desa, Kecamatan..." className="w-full px-5 py-4 premium-input rounded-2xl text-xs font-bold outline-none transition-all" required />
+                <label className="text-[10px] font-black uppercase text-slate-800 dark:text-slate-400 ml-1">📍 Alamat Domisili</label>
+                <input type="text" value={formData.alamat} onChange={e=>setFormData({...formData, alamat: e.target.value})} placeholder="Ketik RT/RW, Desa, Kecamatan..." className="w-full px-5 py-4 premium-input rounded-2xl text-xs font-bold outline-none transition-all text-slate-900 dark:text-white" required />
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 ml-1">🪪 Upload KTP/Identitas</label>
+                <label className="text-[10px] font-black uppercase text-slate-800 dark:text-slate-400 ml-1">🪪 Upload KTP/Identitas</label>
                 <div className="relative group">
                   <input type="file" accept="image/jpeg, image/png, application/pdf" onChange={handleFileChange} className="hidden" id="ktp-upload" />
-                  <label htmlFor="ktp-upload" className={`w-full flex flex-col items-center justify-center gap-3 px-5 py-8 border-2 border-dashed rounded-3xl text-xs font-bold cursor-pointer transition-all ${ktpFile ? 'border-emerald-500 text-emerald-600 bg-emerald-50/80 dark:bg-emerald-900/20 shadow-[0_0_15px_rgba(16,185,129,0.1)] p-2' : 'border-slate-300 dark:border-slate-700 text-slate-500 bg-white/50 dark:bg-slate-900/30 group-hover:bg-white dark:group-hover:bg-slate-800 group-hover:border-slate-400'}`}>
+                  <label htmlFor="ktp-upload" className={`w-full flex flex-col items-center justify-center gap-3 px-5 py-8 border-2 border-dashed rounded-3xl text-xs font-bold cursor-pointer transition-all ${ktpFile ? 'border-emerald-500 text-emerald-700 dark:text-emerald-600 bg-emerald-50/80 dark:bg-emerald-900/20 shadow-[0_0_15px_rgba(16,185,129,0.1)] p-2' : 'border-slate-400 dark:border-slate-700 text-slate-700 dark:text-slate-500 bg-white/80 dark:bg-slate-900/30 group-hover:bg-white dark:group-hover:bg-slate-800 group-hover:border-slate-500'}`}>
                     {ktpFile ? (
                       <div className="w-full relative h-48 bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden border border-emerald-500 flex items-center justify-center">
                         {ktpFile.startsWith('data:application/pdf') ? (
@@ -740,14 +740,14 @@ function PublicPortal({ db, appId, showToast, firebaseUser, dataKunjungan, maste
                       </div>
                     ) : (
                       <>
-                        <div className="p-3 rounded-full bg-slate-100 dark:bg-slate-800">
-                          <Upload size={24} className="text-slate-400" />
+                        <div className="p-3 rounded-full bg-slate-200 dark:bg-slate-800">
+                          <Upload size={24} className="text-slate-600 dark:text-slate-400" />
                         </div>
                         <span>Klik untuk Ambil / Pilih File Foto KTP</span>
                       </>
                     )}
                   </label>
-                  <p className="text-[9px] font-bold text-slate-500 dark:text-slate-400 mt-2 ml-1">* Format didukung: JPG/PNG/PDF. Sistem akan mengecilkan foto secara otomatis.</p>
+                  <p className="text-[9px] font-bold text-slate-600 dark:text-slate-400 mt-2 ml-1">* Format didukung: JPG/PNG/PDF. Sistem akan mengecilkan foto secara otomatis.</p>
                 </div>
               </div>
               
@@ -768,8 +768,8 @@ function PublicPortal({ db, appId, showToast, firebaseUser, dataKunjungan, maste
               </div>
               
               <div className="space-y-1.5">
-                <label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 ml-1">👤 Nama Warga Binaan</label>
-                <input list="wbp-list" value={formData.namaWbp} onChange={e=>setFormData({...formData, namaWbp: e.target.value.toUpperCase()})} placeholder="Ketik untuk mencari nama WBP..." className="w-full px-5 py-4 premium-input rounded-2xl text-xs font-bold uppercase outline-none transition-all shadow-sm" required />
+                <label className="text-[10px] font-black uppercase text-slate-800 dark:text-slate-400 ml-1">👤 Nama Warga Binaan</label>
+                <input list="wbp-list" value={formData.namaWbp} onChange={e=>setFormData({...formData, namaWbp: e.target.value.toUpperCase()})} placeholder="Ketik untuk mencari nama WBP..." className="w-full px-5 py-4 premium-input rounded-2xl text-xs font-bold uppercase outline-none transition-all shadow-sm text-slate-900 dark:text-white" required />
                 <datalist id="wbp-list">
                   {masterWbp.map(w => <option key={w.id} value={w.nama} />)}
                 </datalist>
@@ -792,15 +792,15 @@ function PublicPortal({ db, appId, showToast, firebaseUser, dataKunjungan, maste
                 </h3>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 bg-slate-50/50 dark:bg-slate-900/30 p-5 rounded-3xl border border-slate-100 dark:border-slate-800/50">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 bg-slate-100/80 dark:bg-slate-900/30 p-5 rounded-3xl border border-slate-300 dark:border-slate-800/50">
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 ml-1">📅 Tanggal Rencana</label>
-                  <input type="date" value={formData.tanggal} min={new Date().toISOString().split('T')[0]} onChange={handleDateChange} className="w-full px-5 py-4 premium-input rounded-2xl text-[11px] font-bold uppercase outline-none transition-all dark:[color-scheme:dark] cursor-pointer" required />
+                  <label className="text-[10px] font-black uppercase text-slate-800 dark:text-slate-400 ml-1">📅 Tanggal Rencana</label>
+                  <input type="date" value={formData.tanggal} min={new Date().toISOString().split('T')[0]} onChange={handleDateChange} className="w-full px-5 py-4 premium-input rounded-2xl text-[11px] font-bold uppercase outline-none transition-all dark:[color-scheme:dark] cursor-pointer text-slate-900 dark:text-white" required />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-black uppercase text-slate-600 dark:text-slate-400 ml-1">⏰ Pilih Sesi Jam</label>
+                  <label className="text-[10px] font-black uppercase text-slate-800 dark:text-slate-400 ml-1">⏰ Pilih Sesi Jam</label>
                   <div className="relative">
-                    <select value={formData.sesi} onChange={e=>setFormData({...formData, sesi: e.target.value})} disabled={!formData.tanggal || availableSesi.length === 0} className="w-full px-5 py-4 premium-input rounded-2xl text-[11px] font-bold uppercase outline-none appearance-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition-all" required>
+                    <select value={formData.sesi} onChange={e=>setFormData({...formData, sesi: e.target.value})} disabled={!formData.tanggal || availableSesi.length === 0} className="w-full px-5 py-4 premium-input rounded-2xl text-[11px] font-bold uppercase outline-none appearance-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition-all text-slate-900 dark:text-white" required>
                       <option value="">{formData.tanggal ? '-- Pilih Jam Sesi --' : 'Pilih Tanggal Dulu'}</option>
                       {availableSesi.map(s => {
                         const sLabel = `${s} WITA`;
@@ -1348,50 +1348,50 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
         <>
           {/* FITUR: Stats & Charts Cards */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div className="glass-card p-6 rounded-[2rem] flex items-center gap-5 shadow-lg border-l-4 border-l-amber-500 hover:-translate-y-1 transition-transform relative">
-              <div className="p-4 bg-amber-100 dark:bg-amber-900/40 text-amber-600 rounded-2xl shadow-inner"><Clock size={28}/></div>
-              <div><p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">Menunggu</p><h3 className="text-3xl font-black text-slate-900 dark:text-white">{stats.menunggu}</h3></div>
+            <div className="glass-card p-6 rounded-[2rem] flex items-center gap-5 shadow-lg border-l-4 border-l-amber-500 hover:-translate-y-1 transition-transform relative border border-slate-300 dark:border-slate-700/50">
+              <div className="p-4 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-600 rounded-2xl shadow-inner"><Clock size={28}/></div>
+              <div><p className="text-[10px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-500 mb-1">Menunggu</p><h3 className="text-3xl font-black text-slate-900 dark:text-white">{stats.menunggu}</h3></div>
               {stats.menunggu > 0 && <BellRing size={20} className="absolute top-6 right-6 text-amber-500 animate-bounce"/>}
             </div>
-            <div className="glass-card p-6 rounded-[2rem] flex items-center gap-5 shadow-lg border-l-4 border-l-emerald-500 hover:-translate-y-1 transition-transform">
-              <div className="p-4 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 rounded-2xl shadow-inner"><CheckCircle2 size={28}/></div>
-              <div><p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">Disetujui</p><h3 className="text-3xl font-black text-slate-900 dark:text-white">{stats.disetujui}</h3></div>
+            <div className="glass-card p-6 rounded-[2rem] flex items-center gap-5 shadow-lg border-l-4 border-l-emerald-500 hover:-translate-y-1 transition-transform border border-slate-300 dark:border-slate-700/50">
+              <div className="p-4 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-600 rounded-2xl shadow-inner"><CheckCircle2 size={28}/></div>
+              <div><p className="text-[10px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-500 mb-1">Disetujui</p><h3 className="text-3xl font-black text-slate-900 dark:text-white">{stats.disetujui}</h3></div>
             </div>
-            <div className="glass-card p-6 rounded-[2rem] flex items-center gap-5 shadow-lg border-l-4 border-l-blue-500 hover:-translate-y-1 transition-transform">
-              <div className="p-4 bg-blue-100 dark:bg-blue-900/40 text-blue-600 rounded-2xl shadow-inner"><Users size={28}/></div>
-              <div><p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">Total Reg</p><h3 className="text-3xl font-black text-slate-900 dark:text-white">{dataKunjungan.length}</h3></div>
+            <div className="glass-card p-6 rounded-[2rem] flex items-center gap-5 shadow-lg border-l-4 border-l-blue-500 hover:-translate-y-1 transition-transform border border-slate-300 dark:border-slate-700/50">
+              <div className="p-4 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-600 rounded-2xl shadow-inner"><Users size={28}/></div>
+              <div><p className="text-[10px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-500 mb-1">Total Reg</p><h3 className="text-3xl font-black text-slate-900 dark:text-white">{dataKunjungan.length}</h3></div>
             </div>
             
             {/* FITUR Grafik Analitik Sederhana */}
-            <div className="glass-card p-5 rounded-[2rem] shadow-lg border-l-4 border-l-slate-400 flex flex-col justify-center gap-2 relative">
-               <BarChart3 size={20} className="absolute top-4 right-4 text-slate-300 dark:text-slate-700"/>
-               <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">Analitik Status</p>
-               <div className="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-1.5 flex overflow-hidden">
+            <div className="glass-card p-5 rounded-[2rem] shadow-lg border-l-4 border-l-slate-500 dark:border-l-slate-400 flex flex-col justify-center gap-2 relative border border-slate-300 dark:border-slate-700/50">
+               <BarChart3 size={20} className="absolute top-4 right-4 text-slate-400 dark:text-slate-700"/>
+               <p className="text-[10px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-500 mb-1">Analitik Status</p>
+               <div className="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-1.5 flex overflow-hidden border border-slate-300 dark:border-transparent">
                  <div className="bg-amber-500 h-full" style={{width: `${(stats.menunggu/stats.total)*100}%`}} title={`Menunggu: ${stats.menunggu}`}></div>
                  <div className="bg-emerald-500 h-full" style={{width: `${(stats.disetujui/stats.total)*100}%`}} title={`Disetujui: ${stats.disetujui}`}></div>
                  <div className="bg-blue-500 h-full" style={{width: `${(stats.selesai/stats.total)*100}%`}} title={`Selesai: ${stats.selesai}`}></div>
                  <div className="bg-rose-500 h-full" style={{width: `${(stats.ditolak/stats.total)*100}%`}} title={`Ditolak: ${stats.ditolak}`}></div>
                </div>
-               <div className="flex justify-between text-[8px] font-bold text-slate-400 uppercase mt-1">
-                 <span className="text-amber-500">{Math.round((stats.menunggu/stats.total)*100)}% Tunggu</span>
-                 <span className="text-emerald-500">{Math.round((stats.disetujui/stats.total)*100)}% Setuju</span>
-                 <span className="text-blue-500">{Math.round((stats.selesai/stats.total)*100)}% Selesai</span>
+               <div className="flex justify-between text-[8px] font-bold text-slate-600 dark:text-slate-400 uppercase mt-1">
+                 <span className="text-amber-600 dark:text-amber-500">{Math.round((stats.menunggu/stats.total)*100)}% Tunggu</span>
+                 <span className="text-emerald-600 dark:text-emerald-500">{Math.round((stats.disetujui/stats.total)*100)}% Setuju</span>
+                 <span className="text-blue-600 dark:text-blue-500">{Math.round((stats.selesai/stats.total)*100)}% Selesai</span>
                </div>
             </div>
           </div>
 
       {/* Main Table Area */}
-      <div className="glass-card rounded-[3rem] shadow-2xl overflow-hidden border border-white/40 dark:border-slate-700/50 bg-white/70 dark:bg-slate-900/70">
-        <div className="p-8 border-b border-slate-200/60 dark:border-slate-800 flex flex-col xl:flex-row justify-between items-start xl:items-center gap-6">
+      <div className="glass-card rounded-[3rem] shadow-2xl overflow-hidden border border-slate-300 dark:border-slate-700/50 bg-white/90 dark:bg-slate-900/70">
+        <div className="p-8 border-b border-slate-300 dark:border-slate-800 flex flex-col xl:flex-row justify-between items-start xl:items-center gap-6">
           <div>
             <h2 className="text-2xl font-black flex items-center gap-3"><Monitor size={24} className="text-blue-600"/> Kelola Kunjungan Virtual</h2>
-            <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mt-2">Daftar Registrasi Keluarga WBP</p>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-slate-600 dark:text-slate-500 mt-2">Daftar Registrasi Keluarga WBP</p>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 w-full xl:w-auto">
-             <div className="flex bg-slate-100 dark:bg-slate-900/50 p-1.5 rounded-2xl w-full sm:w-auto overflow-x-auto shadow-inner">
+             <div className="flex bg-slate-200/80 dark:bg-slate-900/50 p-1.5 rounded-2xl w-full sm:w-auto overflow-x-auto shadow-inner border border-slate-300 dark:border-slate-800">
               {['Menunggu', 'Disetujui', 'Selesai', 'Ditolak'].map(tab => (
-                <button key={tab} onClick={() => setActiveTab(tab)} className={`px-5 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest whitespace-nowrap transition-all ${activeTab === tab ? 'bg-white dark:bg-slate-800 shadow-md text-blue-600' : 'text-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50'}`}>
+                <button key={tab} onClick={() => setActiveTab(tab)} className={`px-5 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest whitespace-nowrap transition-all ${activeTab === tab ? 'bg-white dark:bg-slate-800 shadow-md text-blue-700 dark:text-blue-500 border border-slate-200 dark:border-slate-700' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 hover:bg-slate-300/50 dark:hover:bg-slate-800/50'}`}>
                   {tab} {tab === 'Menunggu' && stats.menunggu > 0 && <span className="ml-1.5 bg-rose-500 text-white px-2 py-0.5 rounded-full text-[9px] shadow-sm animate-pulse">{stats.menunggu}</span>}
                 </button>
               ))}
@@ -1411,10 +1411,10 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
         </div>
 
         {/* Filter Toolbar Kunjungan */}
-        <div className="px-8 py-5 bg-slate-50/50 dark:bg-slate-900/30 border-b border-slate-200/60 dark:border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div className="px-8 py-5 bg-slate-100/80 dark:bg-slate-900/30 border-b border-slate-300 dark:border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div className="flex items-center gap-3 flex-wrap">
-            <Filter size={18} className="text-slate-400"/>
-            <select value={filterTime} onChange={(e) => setFilterTime(e.target.value)} className="px-4 py-2.5 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] font-bold outline-none cursor-pointer shadow-sm hover:border-blue-400 transition-colors">
+            <Filter size={18} className="text-slate-500 dark:text-slate-400"/>
+            <select value={filterTime} onChange={(e) => setFilterTime(e.target.value)} className="px-4 py-2.5 bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-xl text-[11px] font-bold outline-none cursor-pointer shadow-sm hover:border-blue-500 transition-colors text-slate-800 dark:text-slate-200">
               <option value="Semua">Semua Waktu</option>
               <option value="Harian">Harian (Hari Ini)</option>
               <option value="Mingguan">Mingguan (Minggu Ini)</option>
@@ -1423,32 +1423,32 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
             </select>
             {filterTime === 'Custom' && (
               <div className="flex items-center gap-2">
-                <input type="date" value={customStart} onChange={e=>setCustomStart(e.target.value)} className="px-3 py-2 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] font-bold outline-none dark:[color-scheme:dark] shadow-sm" title="Mulai Tanggal" />
-                <span className="text-slate-400 font-bold">-</span>
-                <input type="date" value={customEnd} onChange={e=>setCustomEnd(e.target.value)} className="px-3 py-2 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] font-bold outline-none dark:[color-scheme:dark] shadow-sm" title="Sampai Tanggal" />
+                <input type="date" value={customStart} onChange={e=>setCustomStart(e.target.value)} className="px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-xl text-[11px] font-bold outline-none dark:[color-scheme:dark] shadow-sm text-slate-800 dark:text-slate-200" title="Mulai Tanggal" />
+                <span className="text-slate-500 font-bold">-</span>
+                <input type="date" value={customEnd} onChange={e=>setCustomEnd(e.target.value)} className="px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-xl text-[11px] font-bold outline-none dark:[color-scheme:dark] shadow-sm text-slate-800 dark:text-slate-200" title="Sampai Tanggal" />
               </div>
             )}
           </div>
           
           <div className="flex gap-3 w-full sm:w-auto">
             {selectedKunjungan.length > 0 && (
-              <button onClick={handleBulkDeleteKunjungan} className="bg-rose-100 hover:bg-rose-200 text-rose-700 dark:bg-rose-900/50 dark:text-rose-400 px-5 py-3 rounded-xl transition-colors shrink-0 flex items-center justify-center gap-2 font-black text-[10px] uppercase tracking-widest shadow-sm">
+              <button onClick={handleBulkDeleteKunjungan} className="bg-rose-100 hover:bg-rose-200 text-rose-700 dark:bg-rose-900/50 dark:text-rose-400 px-5 py-3 rounded-xl transition-colors shrink-0 flex items-center justify-center gap-2 font-black text-[10px] uppercase tracking-widest shadow-sm border border-rose-200 dark:border-rose-800">
                 <Trash2 size={16}/> Hapus ({selectedKunjungan.length})
               </button>
             )}
             <div className="relative w-full sm:w-72 shrink-0">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
-              <input type="text" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} placeholder="Cari Kode / Nama..." className="w-full pl-11 pr-4 py-3 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-[11px] font-bold outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all shadow-sm" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" size={16} />
+              <input type="text" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} placeholder="Cari Kode / Nama..." className="w-full pl-11 pr-4 py-3 bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-xl text-[11px] font-bold outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all shadow-sm text-slate-800 dark:text-slate-200" />
             </div>
           </div>
         </div>
 
         <div className="overflow-x-auto relative min-h-[300px]">
           <table className="w-full text-left min-w-[1100px]">
-            <thead className="bg-slate-100/80 dark:bg-slate-900/80 backdrop-blur-md text-slate-500 dark:text-slate-400 uppercase text-[10px] font-black tracking-widest sticky top-0 z-10 border-b border-slate-200 dark:border-slate-800">
+            <thead className="bg-slate-200/80 dark:bg-slate-900/80 backdrop-blur-md text-slate-700 dark:text-slate-400 uppercase text-[10px] font-black tracking-widest sticky top-0 z-10 border-b border-slate-300 dark:border-slate-800">
               <tr>
                 <th className="px-6 py-5 w-12 text-center">
-                  <input type="checkbox" checked={selectedKunjungan.length === filteredData.length && filteredData.length > 0} onChange={toggleSelectAllKunjungan} className="w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-600 cursor-pointer transition-colors"/>
+                  <input type="checkbox" checked={selectedKunjungan.length === filteredData.length && filteredData.length > 0} onChange={toggleSelectAllKunjungan} className="w-4 h-4 rounded border-slate-400 text-emerald-600 focus:ring-emerald-600 cursor-pointer transition-colors"/>
                 </th>
                 <th className="px-4 py-5">Identitas Pengunjung</th>
                 <th className="px-6 py-5">Tujuan (WBP)</th>
@@ -1457,14 +1457,38 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
                 <th className="px-8 py-5 text-right">Aksi Petugas</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-800/50">
+            <tbody className="divide-y divide-slate-200 dark:divide-slate-800/50">
               {filteredData.length === 0 ? (
-                <tr><td colSpan="6" className="px-8 py-24 text-center opacity-40"><FileText size={60} className="mx-auto mb-5"/><p className="text-[11px] font-black uppercase tracking-widest">Tidak ada data di halaman ini</p></td></tr>
+                <tr><td colSpan="6" className="px-8 py-24 text-center opacity-60"><FileText size={60} className="mx-auto mb-5 text-slate-500"/><p className="text-[11px] font-black uppercase tracking-widest text-slate-700 dark:text-slate-400">Tidak ada data di halaman ini</p></td></tr>
               ) : (
                 filteredData.map(item => (
-                  <tr key={item.id} className={`transition-all duration-300 hover:shadow-md ${selectedKunjungan.includes(item.id) ? 'bg-emerald-50/80 dark:bg-emerald-900/20' : 'bg-white/40 dark:bg-slate-900/40 hover:bg-white dark:hover:bg-slate-800/80'}`}>
+                  <tr key={item.id} className={`transition-all duration-300 hover:shadow-md ${selectedKunjungan.includes(item.id) ? 'bg-emerald-50/80 dark:bg-emerald-900/20' : 'bg-white/60 dark:bg-slate-900/40 hover:bg-white dark:hover:bg-slate-800/80'}`}>
                     <td className="px-6 py-5 text-center">
-                      <input type="checkbox" checked={selectedKunjungan.includes(item.id)} onChange={() => setSelectedKunjungan(prev => prev.includes(item.id) ? prev.filter(i => i !== item.id) : [...prev, item.id])} className="w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-600 cursor-pointer"/>
+                      <input type="checkbox" checked={selectedKunjungan.includes(item.id)} onChange={() => setSelectedKunjungan(prev => prev.includes(item.id) ? prev.filter(i => i !== item.id) : [...prev, item.id])} className="w-4 h-4 rounded border-slate-400 text-emerald-600 focus:ring-emerald-600 cursor-pointer"/>
+                    </td>
+                    <td className="px-4 py-5">
+                      <div className="flex items-start gap-4">
+                        <button onClick={() => setSelectedPhoto(item.ktpBase64)} className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden shrink-0 hover:scale-110 transition-transform ring-2 ring-transparent hover:ring-blue-500 cursor-zoom-in shadow-sm" title="Klik Lihat KTP">
+                          {item.ktpBase64 ? <img src={item.ktpBase64} className="w-full h-full object-cover" alt="KTP"/> : <User className="w-full h-full p-3 text-slate-400"/>}
+                        </button>
+                        <div>
+                          <p className="font-black text-[13px] text-slate-900 dark:text-white leading-tight flex items-center gap-2 mb-1">
+                            {item.namaPengunjung}
+                            <span className="text-[9px] bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-300 px-2 py-0.5 rounded-lg font-mono tracking-widest border border-slate-300 dark:border-slate-600">{item.id.slice(-6).toUpperCase()}</span>
+                          </p>
+                          <p className="text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase mt-1">NIK: {item.nik}</p>
+                          <p className="text-[10px] font-bold text-slate-600 dark:text-slate-400 mt-1 line-clamp-1 max-w-[200px]" title={item.alamat}>Alamat: {item.alamat || '-'}</p>
+                          <p className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400 mt-1.5 flex items-center gap-1.5"><Phone size={12}/> {item.noWa}</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-5">
+                      <p className="font-black text-[13px] text-slate-900 dark:text-white">{item.namaWbp}</p>
+                      <span className="inline-block mt-1.5 px-2.5 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-400 rounded-lg text-[9px] font-black uppercase tracking-widest shadow-sm border border-blue-200 dark:border-blue-800/50">{item.hubungan}</span>
+                    </td>
+                    <td className="px-6 py-5">
+                      <p className="font-bold text-[12px] text-slate-900 dark:text-white flex items-center gap-1.5"><Calendar size={14} className="text-slate-500 dark:text-slate-400"/> {item.tanggalFormat}</p>
+                      <p className="text-[10px] font-black text-amber-700 dark:text-amber-500 uppercase mt-2 flex items-center gap-1.5"><Clock size={14}/> {item.sesi}</p>
                     </td>
                     <td className="px-4 py-5">
                       <div className="flex items-start gap-4">
@@ -1501,14 +1525,8 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
                             <button onClick={() => handleUpdateStatus(item.id, 'Ditolak')} className="p-2.5 bg-rose-100 text-rose-600 dark:bg-rose-900/50 dark:text-rose-400 rounded-xl hover:bg-rose-500 hover:text-white transition-all shadow-sm" title="Tolak Kunjungan"><X size={18}/></button>
                           </>
                         )}
-                        {item.status === 'Disetujui' && (
-                          <>
-                            <button onClick={() => handleWA(item.noWa, item.namaPengunjung, `${item.tanggalFormat} - ${item.sesi}`, item.status, item.namaWbp)} className="p-2.5 bg-emerald-500 text-white rounded-xl hover:scale-110 hover:shadow-[0_0_15px_rgba(16,185,129,0.5)] transition-all shadow-md flex items-center justify-center animate-pulse" title="Hubungi via WhatsApp"><PhoneCall size={18}/></button>
-                            <button onClick={() => handleUpdateStatus(item.id, 'Selesai')} className="p-2.5 bg-blue-100 text-blue-600 dark:bg-blue-900/50 dark:text-blue-400 rounded-xl hover:bg-blue-500 hover:text-white transition-all shadow-sm" title="Tandai Selesai"><CheckCircle2 size={18}/></button>
-                          </>
-                        )}
-                        <div className="w-px h-10 bg-slate-200 dark:bg-slate-700 mx-1"></div>
-                        <button onClick={() => handleDelete(item.id)} className="p-2.5 bg-slate-100 text-slate-400 dark:bg-slate-800 rounded-xl hover:text-rose-500 hover:bg-rose-100 dark:hover:bg-rose-900/40 transition-all shadow-sm" title="Hapus Permanen Data Ini"><Trash2 size={18}/></button>
+                        <div className="w-px h-10 bg-slate-300 dark:bg-slate-700 mx-1"></div>
+                        <button onClick={() => handleDelete(item.id)} className="p-2.5 bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-400 rounded-xl hover:text-rose-600 hover:bg-rose-100 dark:hover:bg-rose-900/40 transition-all shadow-sm border border-slate-300 dark:border-slate-700" title="Hapus Permanen Data Ini"><Trash2 size={18}/></button>
                       </div>
                     </td>
                   </tr>
@@ -1519,19 +1537,19 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
         </div>
         
         {/* FITUR: Pagination Kunjungan */}
-        <div className="px-8 py-5 border-t border-slate-200/60 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-900/30">
-          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest hidden sm:block">Total {filteredDataAll.length} Data</span>
+        <div className="px-8 py-5 border-t border-slate-300 dark:border-slate-800 flex justify-between items-center bg-slate-100/80 dark:bg-slate-900/30">
+          <span className="text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest hidden sm:block">Total {filteredDataAll.length} Data</span>
           <div className="flex gap-2 w-full sm:w-auto justify-center sm:justify-end items-center">
-            <button disabled={currentPageKunjungan === 1} onClick={() => setCurrentPageKunjungan(p => p - 1)} className="px-4 py-2.5 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-lg text-[10px] font-black uppercase tracking-widest shadow-sm disabled:opacity-50 transition-colors hover:bg-slate-100 flex items-center gap-1"><ChevronRight size={14} className="rotate-180"/> <span className="hidden md:inline">Seb</span></button>
+            <button disabled={currentPageKunjungan === 1} onClick={() => setCurrentPageKunjungan(p => p - 1)} className="px-4 py-2.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 rounded-lg text-[10px] font-black uppercase tracking-widest shadow-sm disabled:opacity-50 transition-colors hover:bg-slate-100 flex items-center gap-1"><ChevronRight size={14} className="rotate-180"/> <span className="hidden md:inline">Seb</span></button>
             
-            <select value={currentPageKunjungan} onChange={e => setCurrentPageKunjungan(Number(e.target.value))} className="px-3 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-[10px] font-black uppercase tracking-widest shadow-sm outline-none cursor-pointer focus:border-blue-500 transition-all">
+            <select value={currentPageKunjungan} onChange={e => setCurrentPageKunjungan(Number(e.target.value))} className="px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 rounded-lg text-[10px] font-black uppercase tracking-widest shadow-sm outline-none cursor-pointer focus:border-blue-500 transition-all">
               {Array.from({length: totalKunjunganPages || 1}, (_, i) => i + 1).map(page => (
                 <option key={page} value={page}>Hal {page}</option>
               ))}
             </select>
-            <span className="text-[10px] font-bold text-slate-400">/ {totalKunjunganPages || 1}</span>
+            <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400">/ {totalKunjunganPages || 1}</span>
 
-            <button disabled={currentPageKunjungan === totalKunjunganPages || totalKunjunganPages === 0} onClick={() => setCurrentPageKunjungan(p => p + 1)} className="px-4 py-2.5 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-lg text-[10px] font-black uppercase tracking-widest shadow-sm disabled:opacity-50 transition-colors hover:bg-slate-100 flex items-center gap-1"><span className="hidden md:inline">Sel</span> <ChevronRight size={14}/></button>
+            <button disabled={currentPageKunjungan === totalKunjunganPages || totalKunjunganPages === 0} onClick={() => setCurrentPageKunjungan(p => p + 1)} className="px-4 py-2.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 rounded-lg text-[10px] font-black uppercase tracking-widest shadow-sm disabled:opacity-50 transition-colors hover:bg-slate-100 flex items-center gap-1"><span className="hidden md:inline">Sel</span> <ChevronRight size={14}/></button>
           </div>
         </div>
 
@@ -1549,14 +1567,14 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
       </>
       ) : (
         /* VIEW DATABASE WBP */
-        <div className="glass-card rounded-[3rem] shadow-2xl overflow-hidden border border-white/40 dark:border-slate-700/50 bg-white/70 dark:bg-slate-900/70">
+        <div className="glass-card rounded-[3rem] shadow-2xl overflow-hidden border border-slate-300 dark:border-slate-700/50 bg-white/90 dark:bg-slate-900/70">
               <div className="p-8 pb-0 flex flex-col xl:flex-row justify-between items-start xl:items-center gap-6 mb-10">
                 <div>
-                  <h2 className="text-2xl font-black flex items-center gap-3 text-slate-900 dark:text-white"><Database size={28} className="text-emerald-500"/> Master Data WBP</h2>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mt-2">Daftar Warga Binaan Pemasyarakatan</p>
+                  <h2 className="text-2xl font-black flex items-center gap-3 text-slate-900 dark:text-white"><Database size={28} className="text-emerald-600 dark:text-emerald-500"/> Master Data WBP</h2>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-600 dark:text-slate-500 mt-2">Daftar Warga Binaan Pemasyarakatan</p>
                 </div>
                 
-                <div className="flex flex-wrap gap-3 w-full xl:w-auto bg-slate-50 dark:bg-slate-800/50 p-2 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-inner">
+                <div className="flex flex-wrap gap-3 w-full xl:w-auto bg-slate-100 dark:bg-slate-800/50 p-2 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-inner">
                   <input type="file" accept=".xlsx, .xls" id="import-excel" className="hidden" onChange={handleImportWbp} />
                   <label htmlFor="import-excel" className="px-5 py-3 bg-emerald-100 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-400 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-emerald-200 transition-colors cursor-pointer flex items-center gap-2 grow sm:grow-0 justify-center shadow-sm">
                     <Upload size={16}/> Import Excel
@@ -1579,15 +1597,15 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
 
               {/* Form Tambah */}
               <div className="px-8">
-                <div className="bg-white/50 dark:bg-slate-900/40 p-6 rounded-[2rem] mb-10 border border-slate-200/60 dark:border-slate-800 shadow-sm backdrop-blur-sm">
+                <div className="bg-slate-100/80 dark:bg-slate-900/40 p-6 rounded-[2rem] mb-10 border border-slate-300 dark:border-slate-800 shadow-sm backdrop-blur-sm">
                   <form onSubmit={handleAddWbp} className="flex flex-col md:flex-row gap-4">
                     <div className="flex-1">
-                      <label className="text-[10px] font-black uppercase text-slate-500 ml-2 mb-2 block">Nama Lengkap WBP</label>
-                      <input type="text" value={newWbpName} onChange={e => setNewWbpName(e.target.value)} placeholder="Ketik nama lengkap..." className="w-full px-6 py-4 premium-input rounded-2xl text-[13px] font-bold outline-none uppercase" required />
+                      <label className="text-[10px] font-black uppercase text-slate-700 dark:text-slate-400 ml-2 mb-2 block">Nama Lengkap WBP</label>
+                      <input type="text" value={newWbpName} onChange={e => setNewWbpName(e.target.value)} placeholder="Ketik nama lengkap..." className="w-full px-6 py-4 premium-input rounded-2xl text-[13px] font-bold outline-none uppercase text-slate-900 dark:text-white" required />
                     </div>
                     <div className="w-full md:w-64">
-                      <label className="text-[10px] font-black uppercase text-slate-500 ml-2 mb-2 block">Status Binaan</label>
-                      <select value={newWbpStatus} onChange={e => setNewWbpStatus(e.target.value)} className="w-full px-6 py-4 premium-input rounded-2xl text-[13px] font-bold outline-none uppercase cursor-pointer">
+                      <label className="text-[10px] font-black uppercase text-slate-700 dark:text-slate-400 ml-2 mb-2 block">Status Binaan</label>
+                      <select value={newWbpStatus} onChange={e => setNewWbpStatus(e.target.value)} className="w-full px-6 py-4 premium-input rounded-2xl text-[13px] font-bold outline-none uppercase cursor-pointer text-slate-900 dark:text-white">
                         <option value="Narapidana">Narapidana</option>
                         <option value="Tahanan">Tahanan</option>
                       </select>
@@ -1599,9 +1617,9 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
                 </div>
 
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
-                  <div className="flex items-center gap-3 w-full sm:w-auto bg-white/50 dark:bg-slate-900/40 p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                    <input type="checkbox" checked={selectedWbp.length === filteredWbp.length && filteredWbp.length > 0} onChange={toggleSelectAllWbp} className="w-5 h-5 rounded border-slate-300 text-emerald-600 focus:ring-emerald-600 cursor-pointer ml-2 transition-colors"/>
-                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-400">Pilih Semua ({selectedWbp.length})</span>
+                  <div className="flex items-center gap-3 w-full sm:w-auto bg-slate-100/80 dark:bg-slate-900/40 p-2.5 rounded-xl border border-slate-300 dark:border-slate-800 shadow-sm">
+                    <input type="checkbox" checked={selectedWbp.length === filteredWbp.length && filteredWbp.length > 0} onChange={toggleSelectAllWbp} className="w-5 h-5 rounded border-slate-400 text-emerald-600 focus:ring-emerald-600 cursor-pointer ml-2 transition-colors"/>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-700 dark:text-slate-400">Pilih Semua ({selectedWbp.length})</span>
                     {selectedWbp.length > 0 && (
                       <button onClick={handleBulkDeleteWbp} className="ml-3 bg-rose-500 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-widest hover:bg-rose-600 transition-colors shadow-md">
                         Hapus
@@ -1609,28 +1627,28 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
                     )}
                   </div>
                   <div className="relative w-full sm:w-80">
-                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
-                    <input type="text" value={searchWbp} onChange={e => setSearchWbp(e.target.value)} placeholder="Cari Nama / Status WBP..." className="w-full pl-11 pr-5 py-3.5 premium-input rounded-xl text-xs font-bold outline-none" />
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" size={16} />
+                    <input type="text" value={searchWbp} onChange={e => setSearchWbp(e.target.value)} placeholder="Cari Nama / Status WBP..." className="w-full pl-11 pr-5 py-3.5 premium-input rounded-xl text-xs font-bold outline-none text-slate-900 dark:text-white" />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 pb-8 min-h-[300px]">
                   {filteredWbp.length === 0 ? (
-                    <div className="col-span-full py-20 text-center opacity-40">
+                    <div className="col-span-full py-20 text-center opacity-60">
                       <Database size={64} className="mx-auto mb-6 text-slate-400"/>
-                      <p className="text-xs font-black uppercase tracking-widest">Data Tidak Ditemukan</p>
+                      <p className="text-xs font-black uppercase tracking-widest text-slate-600 dark:text-slate-400">Data Tidak Ditemukan</p>
                     </div>
                   ) : (
                     filteredWbp.map(wbp => (
-                      <div key={wbp.id} className={`flex justify-between items-center p-5 rounded-2xl border transition-all duration-300 shadow-sm hover:shadow-md ${selectedWbp.includes(wbp.id) ? 'bg-emerald-50 border-emerald-300 dark:bg-emerald-900/30 dark:border-emerald-700 scale-[1.02]' : 'bg-white/60 border-slate-200 dark:bg-slate-800/60 dark:border-slate-700 hover:-translate-y-1'}`}>
+                      <div key={wbp.id} className={`flex justify-between items-center p-5 rounded-2xl border transition-all duration-300 shadow-sm hover:shadow-md ${selectedWbp.includes(wbp.id) ? 'bg-emerald-50 border-emerald-400 dark:bg-emerald-900/30 dark:border-emerald-700 scale-[1.02]' : 'bg-white border-slate-300 dark:bg-slate-800/60 dark:border-slate-700 hover:-translate-y-1'}`}>
                         <div className="flex items-center gap-4 overflow-hidden pr-2">
-                          <input type="checkbox" checked={selectedWbp.includes(wbp.id)} onChange={() => setSelectedWbp(prev => prev.includes(wbp.id) ? prev.filter(i => i !== wbp.id) : [...prev, wbp.id])} className="w-4 h-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-600 cursor-pointer shrink-0"/>
+                          <input type="checkbox" checked={selectedWbp.includes(wbp.id)} onChange={() => setSelectedWbp(prev => prev.includes(wbp.id) ? prev.filter(i => i !== wbp.id) : [...prev, wbp.id])} className="w-4 h-4 rounded border-slate-400 text-emerald-600 focus:ring-emerald-600 cursor-pointer shrink-0"/>
                           <div className="truncate">
                             <p className="font-black text-[13px] uppercase text-slate-900 dark:text-white leading-tight truncate" title={wbp.nama}>{wbp.nama}</p>
-                            <p className="inline-block mt-1.5 px-2 py-0.5 rounded-md text-[8px] font-black uppercase tracking-widest bg-slate-100 text-slate-500 dark:bg-slate-900 dark:text-slate-400">{wbp.status || 'Narapidana'}</p>
+                            <p className="inline-block mt-1.5 px-2 py-0.5 rounded-md text-[8px] font-black uppercase tracking-widest bg-slate-200 text-slate-700 dark:bg-slate-900 dark:text-slate-400 border border-slate-300 dark:border-slate-700">{wbp.status || 'Narapidana'}</p>
                           </div>
                         </div>
-                        <button onClick={() => handleDeleteWbp(wbp.id)} className="p-2 text-slate-300 hover:text-rose-500 hover:bg-rose-100 dark:hover:bg-rose-900/40 rounded-xl transition-all shrink-0" title="Hapus WBP">
+                        <button onClick={() => handleDeleteWbp(wbp.id)} className="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-100 dark:hover:bg-rose-900/40 rounded-xl transition-all shrink-0" title="Hapus WBP">
                           <Trash2 size={18}/>
                         </button>
                       </div>
@@ -1640,19 +1658,19 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
               </div>
 
               {/* FITUR: Pagination WBP */}
-              <div className="px-8 py-5 border-t border-slate-200/60 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-900/30">
-                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest hidden sm:block">Total {filteredWbpAll.length} Data</span>
+              <div className="px-8 py-5 border-t border-slate-300 dark:border-slate-800 flex justify-between items-center bg-slate-100/80 dark:bg-slate-900/30">
+                <span className="text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-widest hidden sm:block">Total {filteredWbpAll.length} Data</span>
                 <div className="flex gap-2 w-full sm:w-auto justify-center sm:justify-end items-center">
-                  <button disabled={currentPageWbp === 1} onClick={() => setCurrentPageWbp(p => p - 1)} className="px-4 py-2.5 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-lg text-[10px] font-black uppercase tracking-widest shadow-sm disabled:opacity-50 transition-colors hover:bg-slate-100 flex items-center gap-1"><ChevronRight size={14} className="rotate-180"/> <span className="hidden md:inline">Seb</span></button>
+                  <button disabled={currentPageWbp === 1} onClick={() => setCurrentPageWbp(p => p - 1)} className="px-4 py-2.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 rounded-lg text-[10px] font-black uppercase tracking-widest shadow-sm disabled:opacity-50 transition-colors hover:bg-slate-100 flex items-center gap-1"><ChevronRight size={14} className="rotate-180"/> <span className="hidden md:inline">Seb</span></button>
                   
-                  <select value={currentPageWbp} onChange={e => setCurrentPageWbp(Number(e.target.value))} className="px-3 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-[10px] font-black uppercase tracking-widest shadow-sm outline-none cursor-pointer focus:border-emerald-500 transition-all">
+                  <select value={currentPageWbp} onChange={e => setCurrentPageWbp(Number(e.target.value))} className="px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 rounded-lg text-[10px] font-black uppercase tracking-widest shadow-sm outline-none cursor-pointer focus:border-emerald-500 transition-all">
                     {Array.from({length: totalWbpPages || 1}, (_, i) => i + 1).map(page => (
                       <option key={page} value={page}>Hal {page}</option>
                     ))}
                   </select>
-                  <span className="text-[10px] font-bold text-slate-400">/ {totalWbpPages || 1}</span>
+                  <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400">/ {totalWbpPages || 1}</span>
 
-                  <button disabled={currentPageWbp === totalWbpPages || totalWbpPages === 0} onClick={() => setCurrentPageWbp(p => p + 1)} className="px-4 py-2.5 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-lg text-[10px] font-black uppercase tracking-widest shadow-sm disabled:opacity-50 transition-colors hover:bg-slate-100 flex items-center gap-1"><span className="hidden md:inline">Sel</span> <ChevronRight size={14}/></button>
+                  <button disabled={currentPageWbp === totalWbpPages || totalWbpPages === 0} onClick={() => setCurrentPageWbp(p => p + 1)} className="px-4 py-2.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 rounded-lg text-[10px] font-black uppercase tracking-widest shadow-sm disabled:opacity-50 transition-colors hover:bg-slate-100 flex items-center gap-1"><span className="hidden md:inline">Sel</span> <ChevronRight size={14}/></button>
                 </div>
               </div>
             </div>
