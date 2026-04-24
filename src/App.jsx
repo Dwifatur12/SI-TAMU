@@ -61,6 +61,7 @@ const defaultWaTemplate = `Halo Bapak/Ibu {nama},\n\nIni adalah layanan SI-TAMU 
 export default function App() {
   const [firebaseUser, setFirebaseUser] = useState(null);
   const [isAuthReady, setIsAuthReady] = useState(false);
+  const [authError, setAuthError] = useState(null); // TAMBAHAN: Detektor Error
   const [isDarkMode, setIsDarkMode] = useState(() => localStorage.getItem('darkMode') !== 'false');
   const [toast, setToast] = useState(null);
   
@@ -131,12 +132,19 @@ export default function App() {
         } else {
           await signInAnonymously(auth);
         }
-      } catch (e) { console.error("Auth failed", e); }
+      } catch (e) { 
+        console.error("Auth failed", e);
+        setAuthError(e.message);
+        setIsAuthReady(true);
+      }
     };
     initAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => { 
       setFirebaseUser(user); 
       setIsAuthReady(true); 
+    }, (error) => {
+      setAuthError(error.message);
+      setIsAuthReady(true);
     });
     return () => unsubscribe();
   }, []);
@@ -144,21 +152,48 @@ export default function App() {
   // Fetch Data
   useEffect(() => {
     if (!firebaseUser) return;
-    const unsubKunjungan = onSnapshot(collection(db, 'artifacts', appId, 'public', 'data', 'kunjungan'), (snap) => {
-      const data = snap.docs.map(d => ({ id: d.id, ...d.data() })).sort((a, b) => b.timestamp - a.timestamp);
-      setDataKunjungan(data);
-    });
-    
-    const unsubWbp = onSnapshot(collection(db, 'artifacts', appId, 'public', 'data', 'wbp'), (snap) => {
-      const data = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-      setMasterWbp(data);
-    });
-    
-    return () => { unsubKunjungan(); unsubWbp(); };
+    try {
+      const unsubKunjungan = onSnapshot(collection(db, 'artifacts', appId, 'public', 'data', 'kunjungan'), (snap) => {
+        const data = snap.docs.map(d => ({ id: d.id, ...d.data() })).sort((a, b) => b.timestamp - a.timestamp);
+        setDataKunjungan(data);
+      }, (err) => setAuthError("Gagal baca data Kunjungan: " + err.message));
+      
+      const unsubWbp = onSnapshot(collection(db, 'artifacts', appId, 'public', 'data', 'wbp'), (snap) => {
+        const data = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        setMasterWbp(data);
+      }, (err) => setAuthError("Gagal baca data WBP: " + err.message));
+      
+      return () => { unsubKunjungan(); unsubWbp(); };
+    } catch (error) {
+      setAuthError("Database Error: " + error.message);
+    }
   }, [firebaseUser]);
 
   if (!isAuthReady) {
     return <div className="min-h-screen flex items-center justify-center bg-slate-950"><Video size={60} className="text-emerald-500 animate-pulse" /></div>;
+  }
+
+  // TAMBAHAN: Layar Error Penuh jika koneksi Vercel - Firebase gagal
+  if (authError) {
+    return (
+      <div className="min-h-screen bg-rose-50 flex items-center justify-center p-6 text-center z-[9999] relative">
+        <div className="max-w-lg bg-white p-10 rounded-3xl shadow-2xl border border-rose-200">
+          <AlertCircle size={60} className="text-rose-500 mx-auto mb-5" />
+          <h1 className="text-2xl font-black text-rose-700 mb-3 uppercase tracking-widest">Koneksi Database Terputus!</h1>
+          <div className="bg-rose-100/50 p-4 rounded-xl mb-6 text-left">
+            <p className="text-sm font-mono text-rose-800 break-words">{authError}</p>
+          </div>
+          <div className="text-left space-y-3">
+            <p className="text-xs font-black uppercase text-slate-500">Penyebab Paling Sering di Vercel:</p>
+            <ol className="text-sm text-slate-700 list-decimal pl-5 space-y-2 font-semibold">
+              <li>Domain Vercel belum diizinkan. Buka Firebase Console &rarr; Authentication &rarr; Settings &rarr; <b>Authorized domains</b> &rarr; Tambahkan URL Vercel Anda.</li>
+              <li>Teks <code className="bg-slate-100 text-rose-500 px-1 rounded">MASUKKAN_API_KEY_ANDA</code> belum diganti dengan Config asli.</li>
+              <li>Aturan Database (Rules) belum diset ke <code className="bg-slate-100 text-rose-500 px-1 rounded">allow read, write: if true;</code></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
