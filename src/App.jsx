@@ -14,6 +14,9 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged } from 'firebase/auth';
 import { getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc, query, orderBy } from 'firebase/firestore';
 
+// PENTING UNTUK VERCEL:
+// Saat di Vercel, sistem akan membaca bagian ini. 
+// Anda WAJIB mengganti teks "MASUKKAN_..." dengan konfigurasi dari Firebase Console Anda sendiri.
 const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
   apiKey: "AIzaSyCfI89Kxtm1pa1ZzkCEQh9BNB1ARPOnzcg",
   authDomain: "si-tamu.firebaseapp.com",
@@ -251,7 +254,7 @@ export default function App() {
         </div>
       )}
 
-      {/* HEADER GLOBAL */}
+      {/* HEADER GLOBAL DENGAN LOGIKA TOMBOL DIPERBAIKI */}
       <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center pointer-events-none transition-all">
         <div className="glass-card px-5 py-3 rounded-2xl pointer-events-auto flex items-center gap-3 shadow-lg hover:shadow-xl transition-shadow border-slate-300 dark:border-white/10">
           <div className="p-1.5 bg-emerald-100 dark:bg-emerald-900/40 rounded-xl">
@@ -267,16 +270,22 @@ export default function App() {
           <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-3.5 glass-card rounded-2xl hover:scale-105 hover:shadow-lg transition-all text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-white/10 hover:border-slate-400 dark:hover:border-slate-600">
             {isDarkMode ? <Sun size={18} className="text-amber-400"/> : <Moon size={18} className="text-indigo-600"/>}
           </button>
-          {currentView === 'public' && !adminUser && (
+          
+          {/* JIKA BELUM LOGIN: Tampilkan tombol Shield untuk menuju halaman login */}
+          {!adminUser && currentView === 'public' && (
             <button onClick={() => setCurrentView('admin-login')} className="p-3.5 glass-card rounded-2xl hover:scale-105 hover:shadow-lg transition-all text-blue-700 dark:text-blue-400 border border-slate-300 dark:border-white/10 hover:border-blue-300 dark:hover:border-blue-900/50" title="Login Petugas">
               <Shield size={18} />
             </button>
           )}
-          {currentView === 'public' && adminUser && (
+
+          {/* JIKA SUDAH LOGIN TAPI SEDANG DI HALAMAN PUBLIK: Tampilkan tombol kembali ke Dashboard */}
+          {adminUser && currentView === 'public' && (
             <button onClick={() => setCurrentView('admin-dashboard')} className="p-3.5 bg-blue-600 text-white rounded-2xl hover:scale-105 hover:shadow-lg transition-all shadow-md" title="Kembali ke Dashboard">
               <Activity size={18} className="animate-pulse" />
             </button>
           )}
+
+          {/* JIKA SUDAH LOGIN DAN SEDANG DI DASHBOARD: Tampilkan pengaturan & tombol keluar */}
           {adminUser && currentView !== 'public' && (
             <>
               <button onClick={openSettings} className="p-3.5 glass-card rounded-2xl hover:scale-105 hover:shadow-lg transition-all text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-white/10 hover:border-slate-400 dark:hover:border-slate-600" title="Ubah Akun Petugas">
@@ -431,7 +440,7 @@ function PublicPortal({ db, appId, showToast, firebaseUser, dataKunjungan, maste
       setFormData({ namaPengunjung: '', nik: '', noWa: '', alamat: '', namaWbp: '', hubungan: '', tanggal: '', sesi: '' });
       setKtpFile(null);
     } catch (err) {
-      showToast("Gagal mengirim pendaftaran. Coba lagi.", "error");
+      showToast("Gagal mengirim pendaftaran. Pastikan Konfigurasi Database benar.", "error");
       console.error(err);
     } finally {
       setLoading(false);
@@ -776,15 +785,16 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
 
   const filteredWbp = masterWbp.filter(w => w.nama.toLowerCase().includes(searchWbp.toLowerCase()) || (w.status && w.status.toLowerCase().includes(searchWbp.toLowerCase())));
 
+  // PERBAIKAN: Pemanggilan Library Excel agar lebih tangguh di Vercel
   useEffect(() => {
-    const loadScript = (src) => {
-      if (!document.querySelector(`script[src="${src}"]`)) {
-        const s = document.createElement('script');
-        s.src = src;
-        document.head.appendChild(s);
-      }
-    };
-    loadScript('https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js');
+    const scriptId = 'xlsx-lib-script';
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement('script');
+      script.id = scriptId;
+      script.src = 'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
   }, []);
 
   const handleUpdateStatus = async (id, statusBaru) => {
@@ -895,7 +905,7 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
       });
       setNewWbpName('');
       showToast("WBP berhasil ditambahkan");
-    } catch (err) { showToast("Gagal menambah WBP", "error"); }
+    } catch (err) { showToast("Gagal menambah WBP! Pastikan Konfigurasi Database Anda Valid.", "error"); }
   };
 
   const handleDeleteWbp = (id) => {
@@ -970,7 +980,7 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
         }
         showToast(`Berhasil mengimpor ${successCount} data WBP`);
       } catch (err) {
-        showToast("Gagal membaca file Excel. Pastikan format sesuai.", "error");
+        showToast("Gagal membaca file Excel / Database gagal terhubung.", "error");
       }
       e.target.value = null;
     };
@@ -979,6 +989,8 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
 
   const handleExportExcelWbp = () => {
     if (!window.XLSX) return showToast("Library Excel belum siap", "error");
+    if (filteredWbp.length === 0) return showToast("Data WBP Kosong. Gagal Ekspor.", "error");
+    
     const data = filteredWbp.map((w, i) => ({ 
       'No': i + 1, 
       'Nama Lengkap': w.nama, 
@@ -992,6 +1004,8 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
   };
 
   const handleExportWordWbp = () => {
+    if (filteredWbp.length === 0) return showToast("Data WBP Kosong. Gagal Ekspor.", "error");
+    
     const header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Data WBP</title></head><body>";
     const footer = "</body></html>";
     let html = "<h2 style='text-align:center; font-family: Arial;'>Daftar Warga Binaan Pemasyarakatan</h2><table border='1' style='width:100%; border-collapse:collapse; font-family: Arial;'><tr><th style='padding:8px; background:#f0f0f0;'>No</th><th style='padding:8px; background:#f0f0f0;'>Nama Lengkap</th><th style='padding:8px; background:#f0f0f0;'>Status</th></tr>";
