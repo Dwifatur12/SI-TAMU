@@ -1484,30 +1484,6 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
                       <p className="font-bold text-[12px] text-slate-900 dark:text-white flex items-center gap-1.5"><Calendar size={14} className="text-slate-500 dark:text-slate-400"/> {item.tanggalFormat}</p>
                       <p className="text-[10px] font-black text-amber-700 dark:text-amber-500 uppercase mt-2 flex items-center gap-1.5"><Clock size={14}/> {item.sesi}</p>
                     </td>
-                    <td className="px-4 py-5">
-                      <div className="flex items-start gap-4">
-                        <button onClick={() => setSelectedPhoto(item.ktpBase64)} className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden shrink-0 hover:scale-110 transition-transform ring-2 ring-transparent hover:ring-blue-500 cursor-zoom-in shadow-sm" title="Klik Lihat KTP">
-                          {item.ktpBase64 ? <img src={item.ktpBase64} className="w-full h-full object-cover" alt="KTP"/> : <User className="w-full h-full p-3 text-slate-400"/>}
-                        </button>
-                        <div>
-                          <p className="font-black text-[13px] text-slate-900 dark:text-white leading-tight flex items-center gap-2 mb-1">
-                            {item.namaPengunjung}
-                            <span className="text-[9px] bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 px-2 py-0.5 rounded-lg font-mono tracking-widest">{item.id.slice(-6).toUpperCase()}</span>
-                          </p>
-                          <p className="text-[10px] font-bold text-slate-500 uppercase mt-1">NIK: {item.nik}</p>
-                          <p className="text-[10px] font-bold text-slate-500 mt-1 line-clamp-1 max-w-[200px]" title={item.alamat}>Alamat: {item.alamat || '-'}</p>
-                          <p className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 mt-1.5 flex items-center gap-1.5"><Phone size={12}/> {item.noWa}</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-5">
-                      <p className="font-black text-[13px] text-slate-900 dark:text-white">{item.namaWbp}</p>
-                      <span className="inline-block mt-1.5 px-2.5 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-400 rounded-lg text-[9px] font-black uppercase tracking-widest shadow-sm">{item.hubungan}</span>
-                    </td>
-                    <td className="px-6 py-5">
-                      <p className="font-bold text-[12px] text-slate-900 dark:text-white flex items-center gap-1.5"><Calendar size={14} className="text-slate-400"/> {item.tanggalFormat}</p>
-                      <p className="text-[10px] font-black text-amber-600 dark:text-amber-500 uppercase mt-2 flex items-center gap-1.5"><Clock size={14}/> {item.sesi}</p>
-                    </td>
                     <td className="px-6 py-5 text-center">
                       <span className={`px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest shadow-sm ${item.status === 'Menunggu' ? 'bg-amber-100 text-amber-700' : item.status === 'Disetujui' ? 'bg-emerald-100 text-emerald-700' : item.status === 'Selesai' ? 'bg-blue-100 text-blue-700' : 'bg-rose-100 text-rose-700'}`}>{item.status}</span>
                     </td>
@@ -1517,6 +1493,12 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
                           <>
                             <button onClick={() => handleUpdateStatus(item.id, 'Disetujui')} className="p-2.5 bg-emerald-100 text-emerald-600 dark:bg-emerald-900/50 dark:text-emerald-400 rounded-xl hover:bg-emerald-500 hover:text-white transition-all shadow-sm" title="Setujui Kunjungan"><Check size={18}/></button>
                             <button onClick={() => handleUpdateStatus(item.id, 'Ditolak')} className="p-2.5 bg-rose-100 text-rose-600 dark:bg-rose-900/50 dark:text-rose-400 rounded-xl hover:bg-rose-500 hover:text-white transition-all shadow-sm" title="Tolak Kunjungan"><X size={18}/></button>
+                          </>
+                        )}
+                        {item.status === 'Disetujui' && (
+                          <>
+                            <button onClick={() => handleWA(item.noWa, item.namaPengunjung, `${item.tanggalFormat} - ${item.sesi}`, item.status, item.namaWbp)} className="p-2.5 bg-emerald-500 text-white rounded-xl hover:scale-110 hover:shadow-[0_0_15px_rgba(16,185,129,0.5)] transition-all shadow-md flex items-center justify-center animate-pulse" title="Hubungi via WhatsApp"><PhoneCall size={18}/></button>
+                            <button onClick={() => handleUpdateStatus(item.id, 'Selesai')} className="p-2.5 bg-blue-100 text-blue-600 dark:bg-blue-900/50 dark:text-blue-400 rounded-xl hover:bg-blue-500 hover:text-white transition-all shadow-sm border border-blue-200 dark:border-blue-800" title="Tandai Selesai"><CheckCircle2 size={18}/></button>
                           </>
                         )}
                         <div className="w-px h-10 bg-slate-300 dark:bg-slate-700 mx-1"></div>
