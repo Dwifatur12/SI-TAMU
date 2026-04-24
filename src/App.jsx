@@ -272,6 +272,11 @@ export default function App() {
               <Shield size={18} />
             </button>
           )}
+          {currentView === 'public' && adminUser && (
+            <button onClick={() => setCurrentView('admin-dashboard')} className="p-3.5 bg-blue-600 text-white rounded-2xl hover:scale-105 hover:shadow-lg transition-all shadow-md" title="Kembali ke Dashboard">
+              <Activity size={18} className="animate-pulse" />
+            </button>
+          )}
           {adminUser && currentView !== 'public' && (
             <>
               <button onClick={openSettings} className="p-3.5 glass-card rounded-2xl hover:scale-105 hover:shadow-lg transition-all text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-white/10 hover:border-slate-400 dark:hover:border-slate-600" title="Ubah Akun Petugas">
