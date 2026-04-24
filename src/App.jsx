@@ -716,27 +716,27 @@ function AdminLogin({ onLogin, onBack, showToast, getAdminCreds }) {
   };
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center animate-in zoom-in duration-500">
-      <div className="glass-card p-10 rounded-[3rem] w-full max-sm text-center border border-white/20 shadow-2xl relative overflow-hidden">
+    <div className="min-h-[80vh] flex items-center justify-center animate-in zoom-in duration-500 px-4">
+      <div className="glass-card p-8 rounded-3xl w-full max-w-sm text-center border border-white/20 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 p-6 opacity-5 pointer-events-none"><Shield size={120} /></div>
-        <button onClick={onBack} className="absolute top-6 left-6 p-2 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors">
+        <button onClick={onBack} className="absolute top-5 left-5 p-2 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors">
           <X size={16} />
         </button>
 
-        <Shield size={50} className="text-blue-600 dark:text-blue-500 mx-auto mb-6 mt-4 drop-shadow-lg" />
-        <h1 className="text-2xl font-black tracking-tighter dark:text-white leading-tight text-slate-900">Login Petugas</h1>
-        <p className="text-[9px] font-bold uppercase tracking-widest text-slate-500 mt-2 mb-8">Akses Dashboard SAPA KALABAHI</p>
+        <Shield size={40} className="text-blue-600 dark:text-blue-500 mx-auto mb-4 mt-2 drop-shadow-lg" />
+        <h1 className="text-xl font-black tracking-tighter dark:text-white leading-tight text-slate-900">Login Petugas</h1>
+        <p className="text-[9px] font-bold uppercase tracking-widest text-slate-500 mt-1.5 mb-6">Akses Dashboard SAPA KALABAHI</p>
 
-        <form onSubmit={handleSubmit} className="space-y-5 text-left relative z-10">
+        <form onSubmit={handleSubmit} className="space-y-4 text-left relative z-10">
           <div className="space-y-1">
             <label className="text-[9px] font-black uppercase tracking-widest text-slate-500 ml-2">Username</label>
-            <input type="text" value={username} onChange={e => setUsername(e.target.value)} className="w-full px-5 py-4 bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 rounded-2xl outline-none focus:border-blue-500 font-bold text-sm transition-all" placeholder="Masukkan Username..." required autoFocus />
+            <input type="text" value={username} onChange={e => setUsername(e.target.value)} className="w-full px-4 py-3 bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 rounded-xl outline-none focus:border-blue-500 font-bold text-sm transition-all" placeholder="Masukkan Username..." required autoFocus />
           </div>
           <div className="space-y-1">
             <label className="text-[9px] font-black uppercase tracking-widest text-slate-500 ml-2">Password</label>
-            <input type="password" value={password} onChange={e => setPassword(e.target.value)} className="w-full px-5 py-4 bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 rounded-2xl outline-none focus:border-blue-500 font-black text-center tracking-[0.3em] text-sm transition-all" placeholder="******" required />
+            <input type="password" value={password} onChange={e => setPassword(e.target.value)} className="w-full px-4 py-3 bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 rounded-xl outline-none focus:border-blue-500 font-black text-center tracking-[0.3em] text-sm transition-all" placeholder="******" required />
           </div>
-          <button type="submit" className="w-full py-5 bg-blue-600 text-white rounded-2xl font-black uppercase text-[10px] tracking-widest btn-3d-blue transition-colors mt-2">Masuk Dashboard</button>
+          <button type="submit" className="w-full py-3.5 bg-blue-600 text-white rounded-xl font-black uppercase text-[10px] tracking-widest btn-3d-blue transition-colors mt-2">Masuk Dashboard</button>
         </form>
       </div>
     </div>
