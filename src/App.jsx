@@ -168,6 +168,11 @@ export default function App() {
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;800&display=swap');
         * { font-family: 'Plus Jakarta Sans', sans-serif; }
         
+        /* ATURAN TAMBAHAN UNTUK MEMAKSA KURSOR TANGAN DI SEMUA TOMBOL */
+        button, select, label[for], input[type="checkbox"], input[type="date"], input[type="time"] { 
+          cursor: pointer !important; 
+        }
+        
         .glass-card { 
           background: rgba(255, 255, 255, 0.65); 
           backdrop-filter: blur(24px); 
@@ -378,16 +383,24 @@ function PublicPortal({ db, appId, showToast, firebaseUser, dataKunjungan, maste
   const [openFaq, setOpenFaq] = useState(null);
 
   const faqs = [
-    { q: "Bagaimana jika kode antrean saya hilang?", a: "Anda bisa menggunakan fitur 'Cek Status Pendaftaran' dan mencari berdasarkan nama Anda atau WBP." },
+    { q: "Bagaimana jika kode antrean saya hilang?", a: "Anda bisa menggunakan fitur 'Cek Status Pendaftaran' dan mencari menggunakan Nomor NIK atau Nomor WhatsApp yang didaftarkan." },
     { q: "Apakah boleh diwakilkan?", a: "Tidak boleh. Wajah pada saat Video Call harus sesuai dengan identitas (KTP) yang didaftarkan." },
     { q: "Berapa lama durasi video call?", a: "Durasi maksimal adalah 15 menit per sesi kunjungan untuk memberikan kesempatan kepada pengunjung lainnya." }
   ];
 
   const handleCekStatus = () => {
     if (!cekId) return;
-    const found = dataKunjungan.find(d => d.id.slice(-6).toUpperCase() === cekId.toUpperCase());
+    const keyword = cekId.toUpperCase();
+    
+    // Fitur Baru: Cari berdasarkan Kode 6 Digit, atau NIK, atau Nomor WA
+    const found = dataKunjungan.find(d => 
+      d.id.slice(-6).toUpperCase() === keyword || 
+      d.nik === keyword || 
+      d.noWa === keyword
+    );
+    
     if (found) setCekResult(found);
-    else showToast("Kode Antrean tidak ditemukan", "error");
+    else showToast("Data tidak ditemukan. Coba gunakan NIK atau No WhatsApp.", "error");
   };
 
   const handleDateChange = (e) => {
@@ -506,25 +519,6 @@ function PublicPortal({ db, appId, showToast, firebaseUser, dataKunjungan, maste
     }
   };
 
-  // FITUR: Download Tiket Kunjungan (JPG)
-  const handleDownloadTicket = () => {
-    const loadScript = (src) => new Promise((resolve) => {
-      if (document.querySelector(`script[src="${src}"]`)) return resolve();
-      const s = document.createElement('script');
-      s.src = src; s.onload = resolve; document.head.appendChild(s);
-    });
-    loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js').then(() => {
-      const element = document.getElementById('ticket-area');
-      const isDark = document.documentElement.classList.contains('dark');
-      window.html2canvas(element, { scale: 3, useCORS: true, backgroundColor: isDark ? '#0f172a' : '#ffffff' }).then(canvas => {
-        const link = document.createElement('a');
-        link.download = `Tiket_SITAMU_${successData.id}.jpg`;
-        link.href = canvas.toDataURL('image/jpeg', 0.95);
-        link.click();
-      });
-    });
-  };
-
   if (successData) {
     return (
       <div className="max-w-md mx-auto mt-10 animate-in zoom-in duration-500">
@@ -566,9 +560,6 @@ function PublicPortal({ db, appId, showToast, firebaseUser, dataKunjungan, maste
         </div>
 
         <div className="mt-6 flex flex-col gap-3" data-html2canvas-ignore="true">
-          <button onClick={handleDownloadTicket} className="w-full py-4 bg-emerald-100 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-400 rounded-2xl font-black uppercase text-[11px] tracking-widest hover:scale-[1.02] hover:shadow-md transition-all border border-emerald-200 dark:border-emerald-800 flex items-center justify-center gap-2">
-            <Download size={16}/> Download Tiket JPG
-          </button>
           <button onClick={() => setSuccessData(null)} className="w-full py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-black uppercase text-[11px] tracking-widest hover:scale-[1.02] hover:shadow-xl transition-all">
             Kembali ke Beranda
           </button>
@@ -862,10 +853,10 @@ function PublicPortal({ db, appId, showToast, firebaseUser, dataKunjungan, maste
               <Search size={32} className="text-blue-600 dark:text-blue-400"/>
             </div>
             <h3 className="text-2xl font-black mb-1 text-slate-900 dark:text-white">Cek Status</h3>
-            <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-8">Lacak Pendaftaran Anda</p>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-8">Gunakan Kode, NIK, atau No WA</p>
             
             <div className="space-y-4">
-              <input type="text" placeholder="Ketik 6 Digit Kode..." value={cekId} onChange={e => setCekId(e.target.value.toUpperCase())} maxLength={6} className="w-full px-5 py-4 premium-input rounded-2xl text-center text-xl font-black tracking-[0.5em] outline-none focus:border-blue-500 transition-all placeholder:tracking-normal placeholder:text-sm placeholder:font-semibold" />
+              <input type="text" placeholder="Ketik Kode / NIK / No WA..." value={cekId} onChange={e => setCekId(e.target.value.toUpperCase())} className="w-full px-5 py-4 premium-input rounded-2xl text-center text-sm font-black tracking-widest outline-none focus:border-blue-500 transition-all placeholder:tracking-normal placeholder:text-sm placeholder:font-semibold" />
               <button onClick={handleCekStatus} className="w-full py-4 bg-blue-600 text-white rounded-2xl font-black uppercase text-[11px] tracking-widest btn-3d-blue">Cari Data</button>
             </div>
 
