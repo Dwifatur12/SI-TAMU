@@ -15,7 +15,13 @@ import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged }
 import { getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc, query, orderBy } from 'firebase/firestore';
 
 const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
-  apiKey: "mock-key", authDomain: "mock.firebaseapp.com", projectId: "mock-id"
+  apiKey: "AIzaSyCD9vEj5slH68DumFqGgftpzOBiXxJqAno",
+  authDomain: "sapa-lapas-kalabahi.firebaseapp.com",
+  projectId: "sapa-lapas-kalabahi",
+  storageBucket: "sapa-lapas-kalabahi.firebasestorage.app",
+  messagingSenderId: "376800337443",
+  appId: "1:376800337443:web:d68366b9314b0d297b9b96",
+  measurementId: "G-LS5HKT2MVC"
 };
 
 const app = initializeApp(firebaseConfig);
