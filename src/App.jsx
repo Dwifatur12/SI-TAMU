@@ -5,7 +5,7 @@ import {
   Moon, Sun, ChevronRight, Activity, MessageSquare, Trash2,
   Check, PhoneCall, Info, UserCheck, Loader2, Download, Database,
   Upload, Printer, FileDown, Settings, ChevronDown, BellRing,
-  BarChart3
+  BarChart3, Eye, EyeOff
 } from 'lucide-react';
 
 // ==========================================
@@ -891,6 +891,7 @@ function PublicPortal({ db, appId, showToast, firebaseUser, dataKunjungan, maste
 function AdminLogin({ onLogin, onBack, showToast, getAdminCreds }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -921,7 +922,12 @@ function AdminLogin({ onLogin, onBack, showToast, getAdminCreds }) {
           </div>
           <div className="space-y-1">
             <label className="text-[9px] font-black uppercase tracking-widest text-slate-500 ml-2">Password</label>
-            <input type="password" value={password} onChange={e => setPassword(e.target.value)} className="w-full px-5 py-4 bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 rounded-2xl outline-none focus:border-blue-500 font-black text-center tracking-[0.3em] text-sm transition-all" placeholder="******" required />
+            <div className="relative">
+              <input type={showPassword ? "text" : "password"} value={password} onChange={e => setPassword(e.target.value)} className="w-full px-5 py-4 pr-12 bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 rounded-2xl outline-none focus:border-blue-500 font-black text-center tracking-[0.3em] text-sm transition-all" placeholder="******" required />
+              <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-blue-500 transition-colors">
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </div>
           </div>
           <button type="submit" className="w-full py-5 bg-blue-600 text-white rounded-2xl font-black uppercase text-[10px] tracking-widest btn-3d-blue transition-colors mt-2">Masuk Dashboard</button>
         </form>
@@ -953,10 +959,10 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
 
   // Paging States
   const [currentPageKunjungan, setCurrentPageKunjungan] = useState(1);
-  const itemsPerPage = 10;
+  const [itemsPerPage, setItemsPerPage] = useState(20);
   
   const [currentPageWbp, setCurrentPageWbp] = useState(1);
-  const itemsPerPageWbp = 12;
+  const [itemsPerPageWbp, setItemsPerPageWbp] = useState(20);
 
   // FITUR: Notifikasi Lonceng Suara Admin
   const prevMenungguRef = useRef(0);
@@ -1334,14 +1340,14 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
           <Monitor size={16}/> Kelola Kunjungan
         </button>
         <button onClick={() => setAdminView('wbp')} className={`flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${adminView === 'wbp' ? 'bg-emerald-600 shadow-md text-white' : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'}`}>
-          <Database size={16}/> Master Data WBP
+          <Database size={16}/> Database WBP
         </button>
       </div>
 
       {adminView === 'kunjungan' ? (
         <>
           {/* FITUR: Stats & Charts Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-6 mb-8">
             <div className="glass-card p-6 rounded-[2rem] flex items-center gap-5 shadow-lg border-l-4 border-l-amber-500 hover:-translate-y-1 transition-transform relative border border-slate-300 dark:border-slate-700/50">
               <div className="p-4 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-600 rounded-2xl shadow-inner"><Clock size={28}/></div>
               <div><p className="text-[10px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-500 mb-1">Menunggu</p><h3 className="text-3xl font-black text-slate-900 dark:text-white">{stats.menunggu}</h3></div>
@@ -1353,7 +1359,11 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
             </div>
             <div className="glass-card p-6 rounded-[2rem] flex items-center gap-5 shadow-lg border-l-4 border-l-blue-500 hover:-translate-y-1 transition-transform border border-slate-300 dark:border-slate-700/50">
               <div className="p-4 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-600 rounded-2xl shadow-inner"><Users size={28}/></div>
-              <div><p className="text-[10px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-500 mb-1">Total Reg</p><h3 className="text-3xl font-black text-slate-900 dark:text-white">{dataKunjungan.length}</h3></div>
+              <div><p className="text-[10px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-500 mb-1">Selesai</p><h3 className="text-3xl font-black text-slate-900 dark:text-white">{stats.selesai}</h3></div>
+            </div>
+            <div className="glass-card p-6 rounded-[2rem] flex items-center gap-5 shadow-lg border-l-4 border-l-rose-500 hover:-translate-y-1 transition-transform border border-slate-300 dark:border-slate-700/50">
+              <div className="p-4 bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-600 rounded-2xl shadow-inner"><X size={28}/></div>
+              <div><p className="text-[10px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-500 mb-1">Ditolak</p><h3 className="text-3xl font-black text-slate-900 dark:text-white">{stats.ditolak}</h3></div>
             </div>
             
             {/* FITUR Grafik Analitik Sederhana */}
@@ -1422,6 +1432,13 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
                 <input type="date" value={customEnd} onChange={e=>setCustomEnd(e.target.value)} className="px-3 py-2 bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-xl text-[11px] font-bold outline-none dark:[color-scheme:dark] shadow-sm text-slate-800 dark:text-slate-200" title="Sampai Tanggal" />
               </div>
             )}
+            <div className="w-px h-6 bg-slate-300 dark:bg-slate-700 mx-1 hidden md:block"></div>
+            <select value={itemsPerPage} onChange={(e) => { setItemsPerPage(Number(e.target.value)); setCurrentPageKunjungan(1); }} className="px-4 py-2.5 bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-800 rounded-xl text-[11px] font-bold outline-none cursor-pointer shadow-sm hover:border-blue-500 transition-colors text-slate-800 dark:text-slate-200">
+              <option value={20}>Tampil 20 Data</option>
+              <option value={50}>Tampil 50 Data</option>
+              <option value={100}>Tampil 100 Data</option>
+              <option value={200}>Tampil 200 Data</option>
+            </select>
           </div>
           
           <div className="flex gap-3 w-full sm:w-auto">
@@ -1546,7 +1563,7 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
         <div className="glass-card rounded-[3rem] shadow-2xl overflow-hidden border border-slate-300 dark:border-slate-700/50 bg-white/90 dark:bg-slate-900/70">
               <div className="p-8 pb-0 flex flex-col xl:flex-row justify-between items-start xl:items-center gap-6 mb-10">
                 <div>
-                  <h2 className="text-2xl font-black flex items-center gap-3 text-slate-900 dark:text-white"><Database size={28} className="text-emerald-600 dark:text-emerald-500"/> Master Data WBP</h2>
+                  <h2 className="text-2xl font-black flex items-center gap-3 text-slate-900 dark:text-white"><Database size={28} className="text-emerald-600 dark:text-emerald-500"/> Database WBP</h2>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-slate-600 dark:text-slate-500 mt-2">Daftar Warga Binaan Pemasyarakatan</p>
                 </div>
                 
@@ -1596,6 +1613,12 @@ function AdminDashboard({ dataKunjungan, db, appId, showToast, masterWbp, waTemp
                   <div className="flex items-center gap-3 w-full sm:w-auto bg-slate-100/80 dark:bg-slate-900/40 p-2.5 rounded-xl border border-slate-300 dark:border-slate-800 shadow-sm">
                     <input type="checkbox" checked={selectedWbp.length === filteredWbp.length && filteredWbp.length > 0} onChange={toggleSelectAllWbp} className="w-5 h-5 rounded border-slate-400 text-emerald-600 focus:ring-emerald-600 cursor-pointer ml-2 transition-colors"/>
                     <span className="text-[10px] font-black uppercase tracking-widest text-slate-700 dark:text-slate-400">Pilih Semua ({selectedWbp.length})</span>
+                    <select value={itemsPerPageWbp} onChange={(e) => { setItemsPerPageWbp(Number(e.target.value)); setCurrentPageWbp(1); }} className="px-3 py-1.5 ml-1 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-[10px] font-black uppercase tracking-widest outline-none cursor-pointer hover:border-emerald-500 transition-colors text-slate-700 dark:text-slate-200">
+                      <option value={20}>20 Baris</option>
+                      <option value={50}>50 Baris</option>
+                      <option value={100}>100 Baris</option>
+                      <option value={200}>200 Baris</option>
+                    </select>
                     {selectedWbp.length > 0 && (
                       <button onClick={handleBulkDeleteWbp} className="ml-3 bg-rose-500 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-widest hover:bg-rose-600 transition-colors shadow-md">
                         Hapus
