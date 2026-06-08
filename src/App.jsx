@@ -16,6 +16,13 @@ import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged }
 import { getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc, query, orderBy } from 'firebase/firestore';
 
 const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
+  apiKey: "AIzaSyDg70XMd6rFKqBLLkbVl7mzH9EbUudHQ7M",
+  authDomain: "si-tamu-b3850.firebaseapp.com",
+  projectId: "si-tamu-b3850",
+  storageBucket: "si-tamu-b3850.firebasestorage.app",
+  messagingSenderId: "612018532590",
+  appId: "1:612018532590:web:649102d58d8cdef49043ff"
+};
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
